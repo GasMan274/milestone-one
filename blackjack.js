@@ -48,36 +48,39 @@ function startGame() {
     //console.log(dealerSum);
     while (dealerSum > 17) {
         //<img src="./cards/4-c.png">
-        let cardImg = document.createElement("img")
+        let cardImg = document.createElement("img");
         let card = deck.pop(); 
-        cardImg.src = "./cards/" + card + "png";
+        cardImg.src = "./cards/" + card + ".png";
         dealerSum += getvalue(card);
         dealerAceCount += checkAce(card);
-        document.getElementById("dealer-cards").append(cardImg)
+        document.getElementById("dealer-cards").append(cardImg);
 
     }
     console.log(dealerSum);
+
+
     for (let i = 0; i < 2; i++) {
-        let cardImg = document.createElement("img")
+        let cardImg = document.createElement("img");
         let card = deck.pop(); 
-        cardImg.src = "./cards/" + card + "png";
+        cardImg.src = "./cards/" + card + ".png";
         yourSum += getvalue(card);
         yourAceCount += checkAce(card);
-        document.getElementById("your-cards").append(cardImg)
+        document.getElementById("your-cards").append(cardImg);
     }
     console.log(yourSum);
     document.getElementById("hit").addEventListener("click", hit);
     document.getElementById("stay").addEventListener("click", stay);
 }
+
 function hit(){
     if (!canHit) {
         return;
     }
-}
+
 
 let cardImg = document.createElement("img");
 let card = deck.pop(); 
-cardImg.src ="./cards/" + card + "png";
+cardImg.src ="./cards/" + card + ".png";
 yourSum += getvalue(card);
 yourAceCount += checkAce(card);
 document.getElementById("your-cards").append(cardImg);
@@ -86,12 +89,12 @@ if (reducedAce(youSum, yourAceCount)> 21) {//A, J, 8 -> 1 +10 + 8
     canHit = false;
  }
 
- function stay(){
+ function stay() {
      dealerSum = reducedAce(dealerSum, dealerAceCount);
      yourSum = reducedAce(yourSum, yourAceCount);
 
      canHit = false;
-     document.getElementById("hidden").src = "./cards/" + hidden + "png";
+     document.getElementById("hidden").src = "./cards/" + hidden + ".png";
 
      let message = "";
      if (yourSum > 21) {
