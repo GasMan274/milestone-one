@@ -86,6 +86,34 @@ if (reducedAce(youSum, yourAceCount)> 21) {//A, J, 8 -> 1 +10 + 8
     canHit = false;
  }
 
+ function stay(){
+     dealerSum = reducedAce(dealerSum, dealerAceCount);
+     yourSum = reducedAce(yourSum, yourAceCount);
+
+     canHit = false;
+     document.getElementById("hidden").src = "./cards/" + hidden + "png";
+
+     let message = "";
+     if (yourSum > 21) {
+         message = "You Lose!";
+     }
+     else if (dealerSum > 21) {
+         message = "You win!";
+     }
+     //both you & dealer <= 21
+     else if (yourSum == dealerSum) {
+         message = "Tie!";
+     }
+     else if (yourSum > dealerSum) {
+         message = "You win!";
+     }
+     else if (yourSum < dealerSum) {
+         message = "You lose!";
+     }
+     document.getElementById("dealer-sum").innerText = dealerSum;
+     document.getElementById("your-sum").innerText = yourSum;
+     document.getElementById("results").innerText = message;
+ }
 
 function getvalue(card) {
     let data = card.split("-"); // 4 is the "value" and C is the "type" also the "-" is also 0for the discription 
