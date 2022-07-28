@@ -85,7 +85,7 @@ yourSum += getvalue(card);
 yourAceCount += checkAce(card);
 document.getElementById("your-cards").append(cardImg);
 
-if (reducedAce(youSum, yourAceCount)> 21) {//A, J, 8 -> 1 +10 + 8
+if (reducedAce(yourSum, yourAceCount)> 21) {//A, J, 8 -> 1 +10 + 8
     canHit = false;
  }
 
