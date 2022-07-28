@@ -78,6 +78,14 @@ function hit(){
 let cardImg = document.createElement("img");
 let card = deck.pop(); 
 cardImg.src ="./cards/" + card + "png";
+yourSum += getvalue(card);
+yourAceCount += checkAce(card);
+document.getElementById("your-cards").append(cardImg);
+
+if (reducedAce(youSum, yourAceCount)> 21) {//A, J, 8 -> 1 +10 + 8
+    canHit = false;
+ }
+
 
 function getvalue(card) {
     let data = card.split("-"); // 4 is the "value" and C is the "type" also the "-" is also 0for the discription 
