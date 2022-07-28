@@ -67,12 +67,17 @@ function startGame() {
     }
     console.log(yourSum);
     document.getElementById("hit").addEventListener("click", hit);
+    document.getElementById("stay").addEventListener("click", stay);
 }
 function hit(){
     if (!canHit) {
         return;
     }
 }
+
+let cardImg = document.createElement("img");
+let card = deck.pop(); 
+cardImg.src ="./cards/" + card + "png";
 
 function getvalue(card) {
     let data = card.split("-"); // 4 is the "value" and C is the "type" also the "-" is also 0for the discription 
