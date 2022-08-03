@@ -68,6 +68,7 @@ function startGame() {
 
          //   yourSum += getValue(card);
         //}
+        // this is your hand 
         yourAceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
     }
