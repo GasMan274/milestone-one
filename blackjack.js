@@ -13,6 +13,7 @@ window.onload = function() {
     buildDeck();
     shuffleDeck();
     startGame();
+    
 }
 
 function buildDeck() {
@@ -59,10 +60,18 @@ function startGame() {
         let cardImg = document.createElement("img");
         let card = deck.pop();
         cardImg.src = "./cards/" + card + ".png";
-        yourSum += getValue(card);
+        //if (yourSum === getValue(card)) {
+            // if user chooses to split option to split
+            // invoke split
+            // else add getValue to yourSum
+        //} else {
+
+         //   yourSum += getValue(card);
+        //}
         yourAceCount += checkAce(card);
         document.getElementById("your-cards").append(cardImg);
     }
+    
 
     console.log(yourSum);
     document.getElementById("hit").addEventListener("click", hit);
